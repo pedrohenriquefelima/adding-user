@@ -1,0 +1,23 @@
+.container {
+    width: 75%;
+    margin: auto 0;
+}
+
+.controler-input {
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    height: 30px;
+    margin: 5px 0;
+}
+
+.label {
+    font-weight: bold;
+}
+
+.invalid {
+    border: 1px solid red;
+    border-radius: 2px;
+}

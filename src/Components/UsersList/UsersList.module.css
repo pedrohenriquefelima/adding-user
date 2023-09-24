@@ -1,0 +1,17 @@
+.users-list-container {
+    display: flex;
+    width: 75%;
+    margin: 0 auto;
+    border-radius: 5px;
+    padding: 10px;
+    justify-content: center;
+    background-color: white;
+}
+
+.no-users {
+    color: #000000;
+}
+
+.users-list {
+    width: 80%;
+}
