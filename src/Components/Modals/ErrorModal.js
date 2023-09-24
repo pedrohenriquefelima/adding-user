@@ -1,16 +1,16 @@
 import React from "react";
+import ReactDom from "react-dom";
 import Button from "../UI/Button";
 import style from './ErrorModal.module.css';
 
 const ErrorModal = (props) => {
 
-    const dismissHandler = () => {
-        props.onDismiss();
+    const BackDrop = (props) => {
+        return <div className={style.backdrop} onClick={props.onClick}></div>
     }
 
-    return (
-        <div>
-            <div className={style.backdrop} onClick={dismissHandler}></div>
+    const OverlayModal = (props) => {
+        return (
             <div className={style.modal}>
                 <div className={style['modal-inner']}>
                     <header className={style.header}>
@@ -24,7 +24,18 @@ const ErrorModal = (props) => {
                     </footer>
                 </div>
             </div>
-        </div>
+        );
+    }
+
+    const dismissHandler = () => {
+        props.onDismiss();
+    }
+
+    return (
+        <React.Fragment>
+            {ReactDom.createPortal(<BackDrop onClick={dismissHandler}/>,document.getElementById('backdrop-root'))}
+            {ReactDom.createPortal(<OverlayModal title={props.title} message={props.message}/>, document.getElementById('overlay-root'))}
+        </React.Fragment>
     )
 };
 
